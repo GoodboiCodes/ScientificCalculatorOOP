@@ -32,7 +32,7 @@ public class Main {
         frame = new JFrame("Scientific Calculator");
         frame.setUndecorated(true); // Remove window decorations
         frame.setBackground(new Color(0, 0, 0, 0)); // Set frame background to fully transparent
-        frame.setBounds(0, 0, 580, 720);
+        frame.setBounds(0, 0, 560, 680);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
         frame.setResizable(false);
@@ -50,39 +50,50 @@ public class Main {
         };
         panel.setOpaque(false); // Make the panel transparent
         panel.setLayout(null);
+        panel.setBorder(BorderFactory.createLineBorder(new Color(250, 231, 251, 255), 2));
         frame.setContentPane(panel);
 
         JButton btnExit = new JButton("Exit");
-        btnExit.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnExit.setBounds(430, 650, 100, 40); // Set the position and size of the button
+        btnExit.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnExit.setBackground(new Color(231, 231, 251));
+        btnExit.setBounds(410, 600, 100, 40); // Set the position and size of the button
         btnExit.addActionListener(e -> {
             System.exit(0); // Exit the application
         });
         panel.add(btnExit);
 
         textField = new JTextField();
-        textField.setFont(new Font("Open Sans", Font.BOLD, 18));
-        textField.setBounds(50, 30, 460, 60);
+        textField.setFont(new Font("Serif", Font.BOLD, 18));
+        textField.setBounds(50, 50, 460, 60);
         panel.add(textField);
         textField.setColumns(10);
 
         // Add a label to display the operation
         JLabel label1 = new JLabel();
-        label1.setFont(new Font("Open Sans", Font.BOLD, 15));
-        label1.setBounds(400, 10, 100, 20);
+        label1.setFont(new Font("Serif", Font.BOLD, 15));
+        label1.setBounds(400, 25, 100, 20);
         label1.setHorizontalAlignment(SwingConstants.RIGHT);
         frame.getContentPane().add(label1);
 
         JLabel label2 = new JLabel();
-        label2.setFont(new Font("Open Sans", Font.BOLD, 13));
-        label2.setBounds(520, 45, 40, 20);
+        label2.setFont(new Font("Serif", Font.BOLD, 13));
+        label2.setBounds(520, 65, 40, 20);
         frame.getContentPane().add(label2);
+
+        JLabel label3 = new JLabel("Scientific Calculator");
+        label3.setFont(new Font("Open Sans", Font.BOLD, 25));
+        label3.setBounds(50, 605, 300, 40); // Adjusted width to fit the text
+        label3.setHorizontalAlignment(SwingConstants.LEFT);
+        label3.setVerticalAlignment(SwingConstants.TOP);
+        frame.getContentPane().add(label3);
+
 
 
         /* Square Root Group */
         JButton btnSqrt = new JButton("√");
-        btnSqrt.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnSqrt.setBounds(50, 110, 70, 40);
+        btnSqrt.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnSqrt.setBackground(new Color(231, 231, 251));
+        btnSqrt.setBounds(50, 125, 70, 40);
         btnSqrt.addActionListener(e -> {
             try {
                 // Parse the number from the text field
@@ -105,8 +116,9 @@ public class Main {
 
 // Implementing Cube Root
         JButton btnCubeRoot = new JButton("∛");
-        btnCubeRoot.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnCubeRoot.setBounds(127, 110, 70, 40);
+        btnCubeRoot.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnCubeRoot.setBackground(new Color(231, 231, 251));
+        btnCubeRoot.setBounds(128, 125, 70, 40);
         btnCubeRoot.addActionListener(e -> {
             try {
                 // Parse the input
@@ -126,8 +138,9 @@ public class Main {
 
 // Implementing n-th Root
         JButton btnNthRoot = new JButton("n√");
-        btnNthRoot.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnNthRoot.setBounds(204, 110, 70, 40);
+        btnNthRoot.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnNthRoot.setBackground(new Color(231, 231, 251));
+        btnNthRoot.setBounds(206, 125, 70, 40);
         btnNthRoot.addActionListener(e -> {
             try {
                 // Prompt user for n
@@ -165,8 +178,9 @@ public class Main {
 
         /* Exponents */
         JButton btnX2 = new JButton("x²");
-        btnX2.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnX2.setBounds(281, 110, 70, 40);
+        btnX2.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnX2.setBackground(new Color(231, 231, 251));
+        btnX2.setBounds(284, 125, 70, 40);
         btnX2.addActionListener(e -> {
             try {
                 // Parse the input
@@ -186,8 +200,9 @@ public class Main {
         frame.getContentPane().add(btnX2);
 
         JButton btnX3 = new JButton("X^3");
-        btnX3.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnX3.setBounds(358, 110, 70, 40);
+        btnX3.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnX3.setBackground(new Color(231, 231, 251));
+        btnX3.setBounds(362, 125, 70, 40);
         btnX3.addActionListener(e -> {
             double a = Double.parseDouble(textField.getText());
             a = a * a * a;
@@ -197,8 +212,9 @@ public class Main {
         frame.getContentPane().add(btnX3);
 
         JButton btnXy = new JButton("X^Y");
-        btnXy.setFont(new Font("Open Sans", Font.PLAIN, 14));
-        btnXy.setBounds(435, 110, 70, 40);
+        btnXy.setFont(new Font("Serif", Font.PLAIN, 14));
+        btnXy.setBackground(new Color(231, 231, 251));
+        btnXy.setBounds(440, 125, 70, 40);
         btnXy.addActionListener(e -> {
             try {
                 first = Double.parseDouble(textField.getText());
@@ -214,8 +230,9 @@ public class Main {
 
         /* Logarithm */
         JButton btnLog = new JButton("Log");
-        btnLog.setFont(new Font("Open Sans", Font.PLAIN, 14));
-        btnLog.setBounds(50, 155, 70, 40);
+        btnLog.setFont(new Font("Serif", Font.PLAIN, 14));
+        btnLog.setBackground(new Color(231, 231, 251));
+        btnLog.setBounds(50, 170, 70, 40);
         btnLog.addActionListener(e -> {
             double a = Math.log(Double.parseDouble(textField.getText()));
             textField.setText(String.valueOf(a));
@@ -224,8 +241,9 @@ public class Main {
         frame.getContentPane().add(btnLog);
 
         JButton btnEx = new JButton("e^x");
-        btnEx.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnEx.setBounds(127, 155, 70, 40);
+        btnEx.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnEx.setBackground(new Color(231, 231, 251));
+        btnEx.setBounds(128, 170, 70, 40);
         btnEx.addActionListener(e -> {
             double a = Math.exp(Double.parseDouble(textField.getText()));
             textField.setText(String.valueOf(a));
@@ -235,8 +253,9 @@ public class Main {
 
         /* Factorial */
         JButton btnFactorial = new JButton("n!");
-        btnFactorial.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnFactorial.setBounds(204, 155, 70, 40);
+        btnFactorial.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnFactorial.setBackground(new Color(231, 231, 251));
+        btnFactorial.setBounds(206, 170, 70, 40);
         btnFactorial.addActionListener(e -> {
             int a = Integer.parseInt(textField.getText());
             if (a < 0) {
@@ -255,8 +274,9 @@ public class Main {
 
         /* Trigonometric functions */
         JButton btnSin = new JButton("Sin");
-        btnSin.setFont(new Font("Open Sans", Font.PLAIN, 14));
-        btnSin.setBounds(281, 155, 70, 40);
+        btnSin.setFont(new Font("Serif", Font.PLAIN, 14));
+        btnSin.setBackground(new Color(231, 231, 251));
+        btnSin.setBounds(284, 170, 70, 40);
         btnSin.addActionListener(e -> {
             double a = Math.sin(Math.toRadians(Double.parseDouble(textField.getText())));
             textField.setText(String.valueOf(a));
@@ -265,8 +285,9 @@ public class Main {
         frame.getContentPane().add(btnSin);
 
         JButton btnCos = new JButton("Cos");
-        btnCos.setFont(new Font("Open Sans", Font.PLAIN, 14));
-        btnCos.setBounds(358, 155, 70, 40);
+        btnCos.setFont(new Font("Serif", Font.PLAIN, 14));
+        btnCos.setBackground(new Color(231, 231, 251));
+        btnCos.setBounds(362, 170, 70, 40);
         btnCos.addActionListener(e -> {
             double a = Math.cos(Math.toRadians(Double.parseDouble(textField.getText())));
             textField.setText(String.valueOf(a));
@@ -275,8 +296,9 @@ public class Main {
         frame.getContentPane().add(btnCos);
 
         JButton btnTan = new JButton("Tan");
-        btnTan.setFont(new Font("Open Sans", Font.PLAIN, 14));
-        btnTan.setBounds(435, 155, 70, 40);
+        btnTan.setFont(new Font("Serif", Font.PLAIN, 14));
+        btnTan.setBackground(new Color(231, 231, 251));
+        btnTan.setBounds(440, 170, 70, 40);
         btnTan.addActionListener(e -> {
             double a = Math.tan(Math.toRadians(Double.parseDouble(textField.getText())));
             textField.setText(String.valueOf(a));
@@ -286,8 +308,9 @@ public class Main {
 
         /* Reciprocal */
         JButton btnReciprocal = new JButton("1/x");
-        btnReciprocal.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnReciprocal.setBounds(50, 200, 70, 40);
+        btnReciprocal.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnReciprocal.setBackground(new Color(231, 231, 251));
+        btnReciprocal.setBounds(50, 215, 70, 40);
         btnReciprocal.addActionListener(e -> {
             double a = 1 / (Double.parseDouble(textField.getText()));
             textField.setText(String.valueOf(a));
@@ -295,9 +318,11 @@ public class Main {
         });
         frame.getContentPane().add(btnReciprocal);
 
+    //Percentage
         JButton btnPercentage = new JButton("%");
-        btnPercentage.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnPercentage.setBounds(127, 200, 70, 40);
+        btnPercentage.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnPercentage.setBackground(new Color(231, 231, 251));
+        btnPercentage.setBounds(128, 215, 70, 40);
         btnPercentage.addActionListener(e -> {
             first = Double.parseDouble(textField.getText());
             textField.setText(""); // Clear text field for the second number
@@ -309,8 +334,9 @@ public class Main {
 
         /* Pi */
         JButton btnPi = new JButton("π");
-        btnPi.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnPi.setBounds(204, 200, 70, 40);
+        btnPi.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnPi.setBackground(new Color(231, 231, 251));
+        btnPi.setBounds(206, 215, 70, 40);
         btnPi.addActionListener(e -> {
             textField.setText(textField.getText() + Math.PI);
             label2.setText("π");
@@ -319,8 +345,9 @@ public class Main {
 
         /* Inverse Trigonometric Functions */
         JButton btnSinh = new JButton("Sinh");
-        btnSinh.setFont(new Font("Open Sans", Font.PLAIN, 14));
-        btnSinh.setBounds(281, 200, 70, 40);
+        btnSinh.setFont(new Font("Serif", Font.PLAIN, 14));
+        btnSinh.setBackground(new Color(231, 231, 251));
+        btnSinh.setBounds(284, 215, 70, 40);
         btnSinh.addActionListener(e -> {
             double a = Math.sinh(Double.parseDouble(textField.getText()));
             textField.setText(String.valueOf(a));
@@ -329,8 +356,9 @@ public class Main {
         frame.getContentPane().add(btnSinh);
 
         JButton btnCosh = new JButton("Cosh");
-        btnCosh.setFont(new Font("Open Sans", Font.PLAIN, 12));
-        btnCosh.setBounds(358, 200, 70, 40);
+        btnCosh.setFont(new Font("Serif", Font.PLAIN, 12));
+        btnCosh.setBackground(new Color(231, 231, 251));
+        btnCosh.setBounds(362, 215, 70, 40);
         btnCosh.addActionListener (e -> {
             double a = Math.cosh(Double.parseDouble(textField.getText()));
             textField.setText(String.valueOf(a));
@@ -339,8 +367,9 @@ public class Main {
         frame.getContentPane().add(btnCosh);
 
         JButton btnTanh = new JButton("Tanh");
-        btnTanh.setFont(new Font("Open Sans", Font.PLAIN, 12));
-        btnTanh.setBounds(435, 200, 70, 40);
+        btnTanh.setFont(new Font("Serif", Font.PLAIN, 12));
+        btnTanh.setBackground(new Color(231, 231, 251));
+        btnTanh.setBounds(440, 215, 70, 40);
         btnTanh.addActionListener(e -> {
             double a = Math.tanh(Double.parseDouble(textField.getText()));
             textField.setText(String.valueOf(a));
@@ -358,8 +387,9 @@ public class Main {
                 textField.setText("");
             }
         });
-        btnNewButton_4_2.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnNewButton_4_2.setBounds(335, 370, 85, 70);
+        btnNewButton_4_2.setFont(new Font("Serif", Font.BOLD, 16));
+        btnNewButton_4_2.setBackground(new Color(231, 231, 251));
+        btnNewButton_4_2.setBounds(332, 360, 84, 70);
         frame.getContentPane().add(btnNewButton_4_2);
 
         JButton btnNewButton_4_3 = new JButton("-");
@@ -372,9 +402,9 @@ public class Main {
                 textField.setText("");
             }
         });
-        btnNewButton_4_3.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_4_3.setBounds(430, 370, 85, 70);
-        btnNewButton_4_3.setBounds(430, 370, 85, 70);
+        btnNewButton_4_3.setFont(new Font("Serif", Font.BOLD, 18));
+        btnNewButton_4_3.setBackground(new Color(231, 231, 251));
+        btnNewButton_4_3.setBounds(426, 360, 84, 70);
         frame.getContentPane().add(btnNewButton_4_3);
 
         JButton btnNewButton_4_4 = new JButton("×");
@@ -387,8 +417,9 @@ public class Main {
                 textField.setText("");
             }
         });
-        btnNewButton_4_4.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_4_4.setBounds(335, 460, 85, 70);
+        btnNewButton_4_4.setFont(new Font("Serif", Font.BOLD, 18));
+        btnNewButton_4_4.setBackground(new Color(231, 231, 251));
+        btnNewButton_4_4.setBounds(332, 440, 84, 70);
         frame.getContentPane().add(btnNewButton_4_4);
 
         JButton btnNewButton_4_5 = new JButton("÷");
@@ -401,8 +432,9 @@ public class Main {
                 textField.setText("");
             }
         });
-        btnNewButton_4_5.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_4_5.setBounds(430, 460, 85, 70);
+        btnNewButton_4_5.setFont(new Font("Serif", Font.BOLD, 18));
+        btnNewButton_4_5.setBackground(new Color(231, 231, 251));
+        btnNewButton_4_5.setBounds(426, 440, 84, 70);
         frame.getContentPane().add(btnNewButton_4_5);
 
 
@@ -417,8 +449,9 @@ public class Main {
 
             }
         });
-        btnNewButton_1_5.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_1_5.setBounds(48, 460, 85, 70);
+        btnNewButton_1_5.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_1_5.setBackground(new Color(231, 231, 251));
+        btnNewButton_1_5.setBounds(50, 440, 84, 70);
         frame.getContentPane().add(btnNewButton_1_5);
 
         JButton btnNewButton_2_5 = new JButton("2");
@@ -429,8 +462,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_2_5.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_2_5.setBounds(145, 460, 85, 70);
+        btnNewButton_2_5.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_2_5.setBackground(new Color(231, 231, 251));
+        btnNewButton_2_5.setBounds(144, 440, 84, 70);
         frame.getContentPane().add(btnNewButton_2_5);
 
         JButton btnNewButton_3_5 = new JButton("3");
@@ -441,8 +475,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_3_5.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_3_5.setBounds(240, 460, 85, 70);
+        btnNewButton_3_5.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_3_5.setBackground(new Color(231, 231, 251));
+        btnNewButton_3_5.setBounds(238, 440, 84, 70);
         frame.getContentPane().add(btnNewButton_3_5);
 
         JButton btnNewButton_1_4 = new JButton("4");
@@ -453,8 +488,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_1_4.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_1_4.setBounds(48, 370, 85, 70);
+        btnNewButton_1_4.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_1_4.setBackground(new Color(231, 231, 251));
+        btnNewButton_1_4.setBounds(50, 360, 84, 70);
         frame.getContentPane().add(btnNewButton_1_4);
 
         JButton btnNewButton_2_4 = new JButton("5");
@@ -465,8 +501,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_2_4.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_2_4.setBounds(145, 370, 85, 70);
+        btnNewButton_2_4.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_2_4.setBackground(new Color(231, 231, 251));
+        btnNewButton_2_4.setBounds(144, 360, 84, 70);
         frame.getContentPane().add(btnNewButton_2_4);
 
         JButton btnNewButton_3_4 = new JButton("6");
@@ -477,8 +514,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_3_4.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_3_4.setBounds(240, 370, 85, 70);
+        btnNewButton_3_4.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_3_4.setBackground(new Color(231, 231, 251));
+        btnNewButton_3_4.setBounds(238, 360, 84, 70);
         frame.getContentPane().add(btnNewButton_3_4);
 
         JButton btnNewButton_1_3 = new JButton("7");
@@ -489,8 +527,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_1_3.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnNewButton_1_3.setBounds(48, 280, 85, 70);
+        btnNewButton_1_3.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnNewButton_1_3.setBackground(new Color(231, 231, 251));
+        btnNewButton_1_3.setBounds(50, 280, 84, 70);
         frame.getContentPane().add(btnNewButton_1_3);
 
         JButton btnNewButton_2_3 = new JButton("8");
@@ -501,8 +540,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_2_3.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnNewButton_2_3.setBounds(145, 280, 85, 70);
+        btnNewButton_2_3.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnNewButton_2_3.setBackground(new Color(231, 231, 251));
+        btnNewButton_2_3.setBounds(144, 280, 84, 70);
         frame.getContentPane().add(btnNewButton_2_3);
 
         JButton btnNewButton_3_3 = new JButton("9");
@@ -513,8 +553,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_3_3.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_3_3.setBounds(240, 280, 85, 70);
+        btnNewButton_3_3.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_3_3.setBackground(new Color(231, 231, 251));
+        btnNewButton_3_3.setBounds(238, 280, 84, 70);
         frame.getContentPane().add(btnNewButton_3_3);
 
         JButton btnNewButton_1_6 = new JButton("0");
@@ -525,8 +566,9 @@ public class Main {
                 textField.setText(number);
             }
         });
-        btnNewButton_1_6.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_1_6.setBounds(145, 550, 85, 70);
+        btnNewButton_1_6.setFont(new Font("Serif", Font.PLAIN, 18));
+        btnNewButton_1_6.setBackground(new Color(231, 231, 251));
+        btnNewButton_1_6.setBounds(144, 520, 84, 70);
         frame.getContentPane().add(btnNewButton_1_6);
 
 
@@ -540,8 +582,9 @@ public class Main {
                 label2.setText(null);
             }
         });
-        btnNewButton_2_2.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnNewButton_2_2.setBounds(430, 280, 85, 70);
+        btnNewButton_2_2.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnNewButton_2_2.setBackground(new Color(231, 231, 251));
+        btnNewButton_2_2.setBounds(426, 280, 84, 70);
         frame.getContentPane().add(btnNewButton_2_2);
 
         JButton btnNewButton_3_2 = new JButton("Back");
@@ -557,8 +600,9 @@ public class Main {
                 }
             }
         });
-        btnNewButton_3_2.setFont(new Font("Open Sans", Font.PLAIN, 16));
-        btnNewButton_3_2.setBounds(335, 280, 85, 70);
+        btnNewButton_3_2.setFont(new Font("Serif", Font.PLAIN, 16));
+        btnNewButton_3_2.setBackground(new Color(231, 231, 251));
+        btnNewButton_3_2.setBounds(332, 280, 84, 70);
         frame.getContentPane().add(btnNewButton_3_2);
 
         JButton btnNewButton_10 = new JButton("+/-");
@@ -570,15 +614,17 @@ public class Main {
                 textField.setText(String.valueOf(a));
             }
         });
-        btnNewButton_10.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_10.setBounds(48, 550, 85, 70);
+        btnNewButton_10.setFont(new Font("Serif", Font.BOLD, 18));
+        btnNewButton_10.setBackground(new Color(231, 231, 251));
+        btnNewButton_10.setBounds(50, 520, 84, 70);
         frame.getContentPane().add(btnNewButton_10);
 
 
         JButton btnNewButton_3_6 = new JButton(".");
         btnNewButton_3_6.setEnabled(true);
-        btnNewButton_3_6.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_3_6.setBounds(240, 550, 85, 70);
+        btnNewButton_3_6.setFont(new Font("Serif", Font.BOLD, 18));
+        btnNewButton_3_6.setBackground(new Color(231, 231, 251));
+        btnNewButton_3_6.setBounds(238, 520, 84, 70);
         frame.getContentPane().add(btnNewButton_3_6);
 
         JButton btnNewButton_4_6 = new JButton("=");
@@ -623,8 +669,9 @@ public class Main {
             }
         });
 
-        btnNewButton_4_6.setFont(new Font("Open Sans", Font.PLAIN, 18));
-        btnNewButton_4_6.setBounds(335, 550, 178, 70);
+        btnNewButton_4_6.setFont(new Font("Serif", Font.BOLD, 18));
+        btnNewButton_4_6.setBackground(new Color(231, 231, 251));
+        btnNewButton_4_6.setBounds(332, 520, 178, 70);
         frame.getContentPane().add(btnNewButton_4_6);
     }
 }
